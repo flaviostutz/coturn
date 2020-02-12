@@ -8,11 +8,12 @@ echo /etc/turnserver.conf
 
 if [ ! -f "/public_ip" ]; then
   if [ "$PUBLIC_IP" == "" ]; then
-      curl http://icanhazip.com 2>/dev/null > /external_ip
+      curl http://icanhazip.com 2>/dev/null > /public_ip
   else
       echo $PUBLIC_IP > /public_ip
   fi
 fi
+echo "Using public IP $(cat /public_ip)"
 
 echo "Starting turnserver..."
 turnserver -v --log-file stdout --external-ip `cat /public_ip` -c /etc/turnserver.conf
