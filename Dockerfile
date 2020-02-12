@@ -1,7 +1,8 @@
 FROM alpine:3.9.5
 
 ENV PUBLIC_IP ''
-ENV TURN_SECRET 'oursecret'
+ENV TURN_USERNAME 'coturn'
+ENV TURN_PASSWORD 'oursecret'
 
 EXPOSE 3478 3478/udp
 

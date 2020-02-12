@@ -14,6 +14,9 @@ services:
     build: .
     image: flaviostutz/coturn
     network_mode: host
+    environment:
+      - TURN_USERNAME=coturn
+      - TURN_PASSWORD=oursecret
 ```
 
 * Run ```docker-compose up -d```
@@ -23,8 +26,12 @@ services:
 # ENVs
 
 * PUBLIC_IP - public IP configuration to be used by TURN. If not specified, the public IP will be queried by ```curl http://icanhazip.com```
-* TURN_SECRET - turn server secret. defaults to 'oursecret'
+* TURN_USER - turn server static username. defaults to 'coturn'
+* TURN_PASSWORD - turn server static password for specificed user. defaults to 'oursecret'
 
 # Considerations
 
 It is advisable to use "network_mode:host" because TURN server will allocate random ports for clients. Currently publishing a wide range of ports in Docker causes too much overhead. With network_mode host it is not the case.
+
+Coturn "realm" is set to "coturn"
+
