@@ -6,14 +6,13 @@ echo "/etc/turnserver.conf"
 envsubst < /tmp/turnserver.conf > /etc/turnserver.conf
 echo /etc/turnserver.conf
 
-if [ ! -f "/public_ip" ]; then
+if [ ! -f /initialized ]; then
   if [ "$PUBLIC_IP" == "" ]; then
-      curl http://icanhazip.com 2>/dev/null > /public_ip
-  else
-      echo $PUBLIC_IP > /public_ip
+      PUBLIC_IP=$(curl http://icanhazip.com 2>/dev/null)
   fi
 fi
-echo "Using public IP $(cat /public_ip)"
+touch /initialized
+echo "Using public IP $PUBLIC_IP"
 
 echo "Starting turnserver..."
-turnserver -v --log-file stdout --external-ip `cat /public_ip` -c /etc/turnserver.conf
+turnserver -v -c /etc/turnserver.conf
