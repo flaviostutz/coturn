@@ -7,7 +7,7 @@ services:
     image: flaviostutz/coturn
     network_mode: host
     environment:
-      - TURN_USERNAME=coturn
-      - TURN_PASSWORD=oursecret
+      - TURN_USERNAME=
+      - TURN_PASSWORD=
 
 
