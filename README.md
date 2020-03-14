@@ -26,8 +26,9 @@ services:
 ## ENVs
 
 * PUBLIC_IP - public IP configuration to be used by TURN. If not specified, the public IP will be queried by ```curl http://icanhazip.com```
-* TURN_USERNAME - turn server static username. defaults to 'coturn'
+* TURN_USERNAME - turn server static username. defaults to 'coturn'. if both 'TURN_USERNAME' and 'TURN_PASSWORD' are empty, TURN server will accept anonymous requests
 * TURN_PASSWORD - turn server static password for specificed user. defaults to 'oursecret'
+* TURN_PORT - turn server port. defaults to '3478'
 
 ## Considerations
 
