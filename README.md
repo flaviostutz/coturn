@@ -1,4 +1,7 @@
 # coturn
+
+[<img src="https://img.shields.io/docker/automated/flaviostutz/coturn"/>](https://hub.docker.com/r/flaviostutz/coturn)
+
 COTURN docker container. This is a STUN/TURN server. https://github.com/coturn/coturn
 
 ## Usage
